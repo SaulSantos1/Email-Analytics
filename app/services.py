@@ -58,6 +58,8 @@ Seu objetivo é analisar o e-mail fornecido e classificá-lo estritamente como '
 - 'Improdutivo': E-mails que não necessitam de uma ação imediata da equipe. Exemplos: newsletters genéricas de mercado (que não sejam comunicados oficiais), spam de fornecedores de software, mensagens de felicitações/agradecimentos, convites para webinars externos não solicitados.
 
 Com base na classificação, gere uma sugestão de resposta curta, profissional, em português, e adequada ao tom institucional da B3.
+Importante: A sugestão de resposta não deve conter nomes próprios (ex: nomes de pessoas ou clientes específicos); use termos genéricos como "Prezado(a)" ou "o participante mencionado".
+
 Se for 'Improdutivo', a resposta pode ser vazia ou um simples "Nenhuma ação necessária.".
 
 Retorne sua análise no formato JSON solicitado.
