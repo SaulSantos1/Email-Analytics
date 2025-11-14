@@ -1,0 +1,251 @@
+/* Importar a fonte 'Inter' */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
+
+:root {
+    /* --- NOSSA NOVA COR PRIMÁRIA: ROXO --- */
+    --cor-roxo-vibrante: #7B00B1;
+    --cor-roxo-vibrante-rgb: 123, 0, 177;
+    --cor-roxo-hover: #6a0099;
+    --cor-roxo-subtle-bg: rgba(123, 0, 177, 0.1);
+    
+    /* --- SOBRESCREVENDO VARIÁVEIS DO BOOTSTRAP --- */
+    --bs-primary: var(--cor-roxo-vibrante);
+    --bs-primary-rgb: var(--cor-roxo-vibrante-rgb);
+    --bs-primary-text-emphasis: var(--cor-roxo-hover);
+    --bs-primary-bg-subtle: var(--cor-roxo-subtle-bg);
+    --bs-primary-border-subtle: rgba(var(--cor-roxo-vibrante-rgb), 0.5);
+
+    --bs-body-font-family: 'Inter', sans-serif;
+    
+    /* Cores do Gradiente de Fundo (Modo Claro) */
+    --gradient-1-light-rgb: var(--cor-roxo-vibrante-rgb);
+    --gradient-2-light-rgb: 0, 212, 255;  /* Ciano */
+
+    /* Cores do Gradiente de Fundo (Modo Escuro) */
+    --gradient-1-dark-rgb: 93, 22, 128;   /* Roxo Escuro */
+    --gradient-2-dark-rgb: 32, 49, 110;  /* Azul Escuro */
+
+    /* Configuração inicial (Modo Claro) */
+    --gradient-1-color: var(--gradient-1-light-rgb);
+    --gradient-2-color: var(--gradient-2-light-rgb);
+}
+
+[data-bs-theme="dark"] {
+    --bs-body-bg: #10121a;
+    --bs-body-color: #e0e0e0;
+    --bs-body-secondary-color: #aaa;
+    --bs-body-tertiary-color: #333;
+    --bs-border-color: #333;
+    --bs-light-rgb: 230, 230, 230;
+
+    /* Gradiente do Modo Escuro */
+    --gradient-1-color: var(--gradient-1-dark-rgb);
+    --gradient-2-color: var(--gradient-2-dark-rgb);
+
+    /* Fundo dos cards no modo escuro */
+    --bs-tertiary-bg: #1A1C2A;
+}
+
+body {
+    background-color: var(--bs-body-bg);
+    transition: background-color 0.3s ease;
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevenir scroll horizontal */
+}
+
+/* --- Gradiente de Fundo "Aurora" --- */
+.gradient-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.gradient-blur {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(150px);
+    opacity: 0.25;
+    transition: background-color 0.5s ease;
+}
+
+[data-bs-theme="dark"] .gradient-blur {
+    opacity: 0.45;
+}
+
+.gradient-blur.top-right {
+    width: 500px;
+    height: 500px;
+    top: -150px;
+    right: -150px;
+    background-color: rgba(var(--gradient-1-color), 1);
+}
+
+.gradient-blur.bottom-left {
+    width: 600px;
+    height: 600px;
+    bottom: -200px;
+    left: -200px;
+    background-color: rgba(var(--gradient-2-color), 1);
+}
+
+.header-title {
+    background: linear-gradient(90deg, var(--bs-primary), var(--bs-info));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    font-weight: 800;
+}
+
+.btn-primary {
+    color: #fff;
+    background: linear-gradient(90deg, var(--bs-primary) 0%, var(--bs-info) 100%);
+    border: 0;
+    transition: filter 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    color: #fff;
+    filter: brightness(1.15);
+    box-shadow: 0 0.5rem 1rem rgba(var(--cor-roxo-vibrante-rgb), 0.25);
+}
+
+.btn-primary:focus {
+    box-shadow: 0 0 0 0.25rem rgba(var(--cor-roxo-vibrante-rgb), 0.5), 0 0.5rem 1rem rgba(var(--cor-roxo-vibrante-rgb), 0.25);
+}
+
+.btn-outline-primary {
+    background: linear-gradient(90deg, var(--bs-primary), var(--bs-info));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    border: 1px solid var(--bs-primary);
+    color: var(--bs-primary);
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-outline-primary:hover, .btn-outline-primary:focus {
+    background: linear-gradient(90deg, var(--bs-primary) 0%, var(--bs-info) 100%);
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+    background-clip: initial;
+    text-fill-color: initial;
+    color: #fff;
+    border-color: transparent;
+    filter: brightness(1.15);
+}
+
+.navbar-glass {
+    background-color: rgba(var(--bs-tertiary-bg-rgb), 0.6);
+    backdrop-filter: blur(10px) saturate(150%);
+    -webkit-backdrop-filter: blur(10px) saturate(150%);
+    border-bottom: 1px solid rgba(var(--bs-border-color-rgb), 0.1);
+    transition: background-color 0.3s ease;
+}
+
+[data-bs-theme="dark"] .navbar-glass {
+    background-color: rgba(16, 18, 26, 0.75); /* "Slate" escuro translúcido */
+    border-bottom: 1px solid rgba(var(--bs-light-rgb), 0.1);
+}
+
+.header-title-icon {
+    background: linear-gradient(90deg, var(--bs-primary), var(--bs-info));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+
+.hero-section {
+    padding: 6rem 0; /* Espaçamento generoso */
+}
+
+.hero-demo-image {
+    position: relative;
+    overflow: hidden; /* Mantém tudo dentro das bordas arredondadas */
+    cursor: pointer;  /* Mostra a mãozinha ao passar o mouse */
+    border-radius: 8px;
+}
+
+.hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Fundo preto com 60% de opacidade */
+    background-color: rgba(0, 0, 0, 0.6); 
+    
+    /* Centralizar o botão */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Estado inicial: invisível */
+    opacity: 0;
+    
+    /* Transição suave */
+    transition: opacity 0.3s ease;
+    z-index: 10;
+    
+}
+
+.hero-demo-image:hover .hover-overlay {
+    opacity: 1;
+}
+
+.hero-demo-image img {
+    transition: transform 0.5s ease;
+}
+
+.hero-demo-image:hover img {
+    transform: scale(1.05);
+}
+
+[data-bs-theme="dark"] .hero-demo-image {
+    border-color: rgba(255,255,255,0.1);
+}
+[data-bs-theme="dark"] .hero-demo-image::before {
+    background-color: #2b2e3b; /* Barra escura */
+}
+
+.step-card {
+    border-radius: 1rem;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    background-color: var(--bs-body-bg);
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-bs-theme="dark"] .step-card {
+    background-color: var(--bs-tertiary-bg);
+    border: 1px solid rgba(var(--bs-light-rgb), 0.1);
+}
+
+[data-bs-theme="dark"] .step-card:hover {
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--bs-primary-bg-subtle);
+    color: var(--bs-primary);
+    font-weight: 700;
+    font-size: 1.2rem;
+    flex-shrink: 0; /* Para não encolher */
+}
